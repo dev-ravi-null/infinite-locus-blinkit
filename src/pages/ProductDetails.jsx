@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const dispatch = useDispatch();
     if (!product) return <div>Product Not Found</div>
     return (
-        <div style={{ padding: "40px", display: "flex", gap: "40px" }}>
+        <div style={{ padding: "40px", gap: "40px" }}>
             <img src={product.image} alt={product.name} style={{ width: "240px" }} />
             <p >{product.name}</p>
             <p >{product.weight}</p>

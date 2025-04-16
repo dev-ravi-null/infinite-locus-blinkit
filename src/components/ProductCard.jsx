@@ -12,9 +12,10 @@ const ProductCard = ({ product }) => {
       padding: "10px",
       cursor: "pointer",
       fontFamily: "Popins,sans-serif",
+      transition: "box-shadow 0.2 ease-in-out"
 
     }}>
-      <img src='product.image' alt='{product.name}' style={{ width: "100%", height: "120px", objectFit: "contain" }} />
+      <img src={product.image} alt='{product.name}' style={{ width: "100%", height: "120px", objectFit: "contain" }} />
       <p style={{ fontSize: "14px", color: "#333", margin: "" }}>{product.name}</p>
       <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.weight}</p>
       <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.price}</p>
@@ -23,7 +24,6 @@ const ProductCard = ({ product }) => {
         dispatch(addToCart(product))
       }} style={{
         padding: "6px  12px",
-        color: "#fff",
         border: "none",
         borderRadius: '4px',
         fontSize: "13px",

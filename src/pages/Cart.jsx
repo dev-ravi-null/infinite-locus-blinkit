@@ -1,7 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromCart } from '../redux/cartSlice'
 const Cart = () => {
-    const items = useSelector((state) => state.cart(items))
+    const dispatch = useDispatch()
+    const handleRemove = (id) => {
+        dispatch(removeFromCart(id))
+    }
+    const items = useSelector((state) => state.cart.items)
     return (
         <div style={{ padding: "30px" }}>
             <h2>Your Cart</h2>
@@ -10,7 +15,9 @@ const Cart = () => {
             ) : (
                 <ul>
                     {items.map((item, idx) => (
-                        <li key={idx}>{item.name}- ${item.price}</li>
+                        <li key={idx}>{item.name}- ${item.price} <img style={{ width: "5%", height: "5%" }} src={item.image} alt="" />
+                            <button onClick={() => handleRemove(item.id)}>Delete</button></li>
+
                     ))}
                 </ul>
             )}

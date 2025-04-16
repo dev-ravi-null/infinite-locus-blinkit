@@ -1,9 +1,9 @@
 import React from 'react'
-import { products } from '../components/ProductCard'
+import { products } from '../data'
 import ProductCard from '../components/ProductCard'
 const ProductList = () => {
     return (
-        <div style={{ padding: "30px", display: "grid", gap: '20px', gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))`" }}>
+        <div style={{ padding: "30px", display: "flex", gap: '100px' }}>
             {products.map((p) => (
                 <ProductCard key={p.id} product={p} />
             ))}
