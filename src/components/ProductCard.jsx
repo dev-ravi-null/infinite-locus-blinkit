@@ -1,8 +1,27 @@
 import React from 'react'
-
-const ProductCard = () => {
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice'
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
   return (
-    <div>ProductCard</div>
+    <div onClick={() => navigate(`/product/${product.id}`)} style={{
+      border: "1px solid #eee"
+      , borderRadius: "12px",
+      padding: "10px",
+      cursor: "pointer",
+      fontFamily: "Popins,sans-serif",
+
+    }}>
+      <img src='product.image' alt='{product.name}' style={{ width: "100%", height: "120px", objectFit: "contain" }} />
+      <p style={{ fontSize: "14px", color: "#333", margin: "" }}>{product.name}</p>
+      <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.weight}</p>
+      <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.price}</p>
+      <button>
+        ADD
+      </button>
+    </div>
   )
 }
 
