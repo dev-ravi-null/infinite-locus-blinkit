@@ -18,7 +18,18 @@ const ProductCard = ({ product }) => {
       <p style={{ fontSize: "14px", color: "#333", margin: "" }}>{product.name}</p>
       <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.weight}</p>
       <p style={{ fontSize: "14px", color: "", margin: "" }}>{product.price}</p>
-      <button>
+      <button onClick={(e) => {
+        e.stopPropagation();
+        dispatch(addToCart(product))
+      }} style={{
+        padding: "6px  12px",
+        color: "#fff",
+        border: "none",
+        borderRadius: '4px',
+        fontSize: "13px",
+        marginTop: "4px",
+        width: "100%"
+      }}>
         ADD
       </button>
     </div>
